@@ -14,18 +14,12 @@ static auto approximate_pi() -> double {
   std::mt19937 gen(rand());
   std::uniform_real_distribution<double> dist(0.0, 1.0);
 
-  const int pointsTotal = 100;
-  double points[pointsTotal][2];
-
-  for(auto & point : points) {
-    point[0] = dist(gen);
-    point[1] = dist(gen);
-  }
+  const int pointsTotal = 1000000;
 
   int pointsIn = 0;
 
-  for (auto & point : points) {
-    if(0.5 >= getDist(point[0],point[1],0.5,0.5)){
+  for (int i=0; i<pointsTotal; i++) {
+    if(0.5 >= getDist(dist(gen),dist(gen),0.5,0.5)){
       pointsIn++;
     }
   }
