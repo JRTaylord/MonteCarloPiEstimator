@@ -40,8 +40,10 @@ static auto approximate_pi() -> double {
   // Pi = (r*2)^2)/(r^2) * pointsIn/pointsTotal
   // Pi = (r*r*4)/(r*r) * pointsIn/pointsTotal
   // Pi = 4 * pointsIn/pointsTotal
+  std::cout << "pointsIn: " << pointsIn << '\n';
+  std::cout << "pointsTotal: " << pointsTotal << '\n';
 
-  return 4.0 * pointsIn/pointsTotal;
+  return 4.0 * static_cast<double>(pointsIn)/static_cast<double>(pointsTotal);
 }
 
 auto main() -> int
