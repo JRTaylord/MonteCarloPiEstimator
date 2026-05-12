@@ -6,7 +6,7 @@
 #include "lib.hpp"
 
 static auto getDist(double x1, double y1, double x2, double y2) -> double {
-  return sqrt(pow(x1 - x2, 2) - pow(y1-y2,2));
+  return sqrt(pow(x1 - x2, 2) + pow(y1-y2,2));
 }
 
 static auto approximate_pi() -> double {
@@ -25,7 +25,7 @@ static auto approximate_pi() -> double {
   int pointsIn = 0;
 
   for (auto & point : points) {
-    if(0.5 <= getDist(point[0],point[1],0.5,0.5)){
+    if(0.5 >= getDist(point[0],point[1],0.5,0.5)){
       pointsIn++;
     }
   }
