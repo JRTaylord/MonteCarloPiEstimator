@@ -14,8 +14,8 @@ static auto approximate_pi() -> double {
   std::mt19937 gen(rand());
   std::uniform_real_distribution<double> dist(0.0, 1.0);
 
-  const int length = 100;
-  double points[length][2];
+  const int pointsTotal = 100;
+  double points[pointsTotal][2];
 
   for(auto & point : points) {
     point[0] = dist(gen);
@@ -31,13 +31,23 @@ static auto approximate_pi() -> double {
   }
   // Area of square is A = s^2
   // Area of circle is A = Pi*r^2
+  //
+  // The percentage of points in the circle should be pointsIn/pointsTotal = (Pi*r^2)/(s^2)
+  // Then I need to pull Pi out from this:
+  // pointsTotal/pointsIn = (s^2)/(Pi*r^2)
+  // Pi * pointsTotal/pointsIn = (s^2)/(r^2)
+  // Pi = (s^2)/(r^2) * pointsIn/pointsTotal
+  // Pi = (r*2)^2)/(r^2) * pointsIn/pointsTotal
+  // Pi = (r*r*4)/(r*r) * pointsIn/pointsTotal
+  // Pi = 4 * pointsIn/pointsTotal
 
-  return 0.0;
+  return 4.0 * pointsIn/pointsTotal;
 }
 
 auto main() -> int
 {
   double piApprox = approximate_pi();
+  std::cout << "Pi is:" << '\n';
   std::cout << piApprox << '\n';
   return 0;
 }
