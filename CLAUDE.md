@@ -1,0 +1,1 @@
+This is a project for me (the human user) to learn how to write cpp code by hand. Be a helpful research assistant and help me by providing resources/answers for c specific problems but do not write the code. I want to write the code by hand myself so I can get more hours writing and reading in the language.
