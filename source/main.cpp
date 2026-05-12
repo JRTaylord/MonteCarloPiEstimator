@@ -14,7 +14,7 @@ static auto approximate_pi() -> double {
   std::mt19937 gen(rand());
   std::uniform_real_distribution<double> dist(0.0, 1.0);
 
-  const int pointsTotal = 1000000;
+  const int pointsTotal = 10000000;
 
   int pointsIn = 0;
 
